@@ -24,34 +24,34 @@
         </div>
       </li> -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/product">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span onclick="location.href='/product">제품 정보</span></a>
+          <span>제품 정보</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/custom">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span onclick="location.href='/custom">고객 정보</span></a>
+          <span>고객 정보</span></a>
       </li>                  
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/issue/create">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span onclick="location.href='/issue/create">라이선스 발급</span></a>
+          <span>라이선스 발급</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="/history/issue">
           <i class="fas fa-fw fa-table"></i>
-          <span onclick="location.href='/history/issue">라이선스 발급 이력 조회</span></a>
+          <span>라이선스 발급 이력</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="/history/distribute">
           <i class="fas fa-fw fa-table"></i>
-          <span onclick="location.href='/history/distribute">라이선스 배포 이력 조회</span></a>
+          <span>라이선스 배포 이력</span></a>
       </li>      
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/account">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span onclick="location.href='/account">계정 관리</span></a>
+          <span>계정 관리</span></a>
       </li>  
     </ul>
  

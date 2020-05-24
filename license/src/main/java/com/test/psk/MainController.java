@@ -1,7 +1,5 @@
 package com.test.psk;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -17,25 +15,42 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class MainController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
-	
+
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public ModelAndView home(Locale locale, Model model) {
+//		ModelAndView mav = new ModelAndView();
+//
+//		mav.addObject("home");
+//
+//		return mav;
+//	}
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home(Locale locale, Model model) {
-		ModelAndView mav = new ModelAndView();
-		
-		mav.addObject("home");
-		
-		return mav;
-	}
-	
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public ModelAndView test(Locale locale, Model model) {
 		ModelAndView mav = new ModelAndView();
-		
-		mav.addObject("test");
-		
+
+		mav.setViewName("test");
+
 		return mav;
 	}
-	
+
+	@RequestMapping(value = "/sample/create", method = RequestMethod.GET)
+	public ModelAndView create(Locale locale, Model model) {
+		ModelAndView mav = new ModelAndView();
+
+		mav.setViewName("sample/create");
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/sample/list", method = RequestMethod.GET)
+	public ModelAndView list(Locale locale, Model model) {
+		ModelAndView mav = new ModelAndView();
+
+		mav.setViewName("sample/list");
+
+		return mav;
+	}
 }
