@@ -26,8 +26,7 @@
 			                                 <tr>
 			                                    <th class="table-bd-r">제품명</th>
 			                                    <th class="table-bd-r">버전</th>
-			                                    <th class="table-bd-r">출시일</th>
-			                                    <th class="table-bd-r">담당자</th>
+			                                    <th>출시일</th>
 			                                 </tr>
 			                              </thead>
 			                              <tbody>
@@ -47,11 +46,6 @@
 			                                             <span class="group-user-cnt">2019-05-31</span>
 			                                          </span>
 			                                       </td>
-			                                       <td class="text-center">
-			                                          <span class="td-user-cnt" style="cursor:pointer;">
-			                                             <span class="group-user-cnt">방승용</span>
-			                                          </span>
-			                                       </td>
 			                                    </tr>
 			                                 
 			                              </tbody>
@@ -59,10 +53,10 @@
 			                        </div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-dark-3 mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; height: 0px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
 			                     </div>							
 							</li>
-							<li>
+							<!-- <li>
 								<input type="radio" id="chkgroup2-1"	class="css-radio"> 
 								<label for="chkgroup2-1" class="radio-label mar-tm">ipms.. </label>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 					
@@ -149,8 +143,7 @@
 			                              <thead>
 			                                 <tr>
 			                                    <th class="table-bd-r">회사 명</th>
-			                                    <th class="table-bd-r">고객 명</th>
-			                                    <th>연락처</th>
+			                                    <th >고객 명</th>
 			                                 </tr>
 			                              </thead>
 			                              <tbody>
@@ -165,9 +158,26 @@
 			                                            	<span class="group-user-cnt">김명중</span>
 			                                          	</span>
 			                                       </td>
+			                                    </tr>
+			                                    <tr>
 			                                       <td class="text-left table-bd-r">
-			                                          	<span class="td-user-cnt" style="cursor:pointer;">
-			                                            	<span class="group-user-cnt">01011111111</span>
+			                                          <input type="radio" id="company1" name="company" class="css-radio check-group1" value="">
+			                                          <label for="company1" class="radio-label mar-rm group-name">씨앤택네트워크</label>
+			                                       </td>
+			                                       <td class="text-left table-bd-r">
+			                                       		<span class="td-user-cnt" style="cursor:pointer;">
+			                                            	<span class="group-user-cnt">김성한</span>
+			                                          	</span>
+			                                       </td>
+			                                    </tr>
+			                                    <tr>
+			                                       <td class="text-left table-bd-r">
+			                                          <input type="radio" id="company1" name="company" class="css-radio check-group1" value="">
+			                                          <label for="company1" class="radio-label mar-rm group-name">셀프리팜</label>
+			                                       </td>
+			                                       <td class="text-left table-bd-r">
+			                                       		<span class="td-user-cnt" style="cursor:pointer;">
+			                                            	<span class="group-user-cnt">이준상</span>
 			                                          	</span>
 			                                       </td>
 			                                    </tr>
@@ -196,5 +206,7 @@
 
 
 <script type="text/javascript">
-
 </script>
+
+<script type="text/javascript" src="/resources/js/issue/create.js"></script>
+

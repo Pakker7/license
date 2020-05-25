@@ -34,14 +34,16 @@
     <!-- jquery -->
     <script type="text/javascript" src="/resources/assets/js/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="/resources/assets/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="/resources/assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/resources/assets/js/bootstrap-toggle.min.js"></script>
+    <!-- <script type="text/javascript" src="/resources/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/resources/assets/js/bootstrap-toggle.min.js"></script> -->
     
+    <script type="text/javascript" src="/resources/assets/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="/resources/assets/js/bootstrap-datetimepicker.min.js"></script>
     <!-- //add -->
   
   
 	<link rel="stylesheet" type="text/css" href="/vendor/fontawesome-free/css/all.min.css" />
-	<!-- <link rel="stylesheet" type="text/css" href="/vendor/datatables/dataTables.bootstrap4.css" /> -->
+	<link rel="stylesheet" type="text/css" href="/vendor/datatables/dataTables.bootstrap4.css" />
 	<link rel="stylesheet" type="text/css" href="/css/sb-admin.css" />
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">

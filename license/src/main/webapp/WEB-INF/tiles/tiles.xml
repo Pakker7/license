@@ -27,7 +27,15 @@
     <definition name="issue/create" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/issue/create.jsp" />
     </definition>
-
-
+    <definition name="history/distribute" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/history/distribute/list.jsp" />
+    </definition>
+	<definition name="history/issue" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/history/issue/list.jsp" />
+    </definition>
+    <definition name="product" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/product/list.jsp" />
+    </definition>
+    
     
 </tiles-definitions>
