@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <div class="content">
 
@@ -30,23 +32,34 @@
 			                                 </tr>
 			                              </thead>
 			                              <tbody>
-			                                 
-			                                    <tr>
-			                                       <td class="text-left table-bd-r">
-			                                          <input type="radio" id="groupsRadio1" name="radio_groups" class="css-radio check-group1" value="UG01001000000">
-			                                          <label for="groupsRadio1" class="radio-label mar-rm group-name">IpmsServer</label>
-			                                       </td>
-			                                       <td class="text-center table-bd-r">
-			                                          <span class="td-user-cnt" style="cursor:pointer;">
-			                                             <span class="group-user-cnt">3.0.0</span>
-			                                          </span>
-			                                       </td>
-			                                       <td class="text-center table-bd-r">
-			                                          <span class="td-user-cnt" style="cursor:pointer;">
-			                                             <span class="group-user-cnt">2019-05-31</span>
-			                                          </span>
-			                                       </td>
-			                                    </tr>
+			                                 <c:choose>
+												<c:when test="${fn:length(products) == 0}">
+													<tr>
+														<td colspan="3">데이터가 없습니다.</td>
+													</tr>
+												</c:when>
+												<c:otherwise> 
+												<c:forEach var="product" items="${products}">
+													<tr>
+				                                       <td class="text-left table-bd-r">
+				                                          <input type="radio" id="product_${product.idx }" name="radio_groups" class="css-radio check-group1" value="${product.idx }">
+				                                          <label for="product_${product.idx }" class="radio-label mar-rm group-name">${product.name }</label>
+				                                       </td>
+				                                       <td class="text-center table-bd-r">
+				                                          <span class="td-user-cnt" style="cursor:pointer;">
+				                                             <span class="group-user-cnt">${product.version }</span>
+				                                          </span>
+				                                       </td>
+				                                       <td class="text-center table-bd-r">
+				                                          <span class="td-user-cnt" style="cursor:pointer;">
+				                                             <span class="group-user-cnt"><fmt:formatDate value="${product.launch_date }" pattern="yyyy-MM-dd"/></span>
+				                                          </span>
+				                                       </td>
+				                                    </tr>
+												</c:forEach>
+												</c:otherwise> 
+											</c:choose>
+			                                    
 			                                 
 			                              </tbody>
 			                           </table>
@@ -72,8 +85,8 @@
 									</div>
 									<div class="form-group-inline">					
 				                       	<span class="inline-group date">
-									         <input type="text" class="form-control date toRadio" id="startDate" name="startDate" maxlength="11"> ~
-									         <input type="text" class="form-control date toRadio" id="endDate" name="endDate" maxlength="11">
+									         <input type="text" class="form-control date" id="startDate" name="startDate" maxlength="11"> ~
+									         <input type="text" class="form-control date" id="endDate" name="endDate" maxlength="11">
 									      </span>
 									</div>
 								</div>
@@ -147,40 +160,28 @@
 			                                 </tr>
 			                              </thead>
 			                              <tbody>
-			                                 
-			                                    <tr>
-			                                       <td class="text-left table-bd-r">
-			                                          <input type="radio" id="company1" name="company" class="css-radio check-group1" value="">
-			                                          <label for="company1" class="radio-label mar-rm group-name">대한컴퍼니</label>
-			                                       </td>
-			                                       <td class="text-left table-bd-r">
-			                                       		<span class="td-user-cnt" style="cursor:pointer;">
-			                                            	<span class="group-user-cnt">김명중</span>
-			                                          	</span>
-			                                       </td>
-			                                    </tr>
-			                                    <tr>
-			                                       <td class="text-left table-bd-r">
-			                                          <input type="radio" id="company1" name="company" class="css-radio check-group1" value="">
-			                                          <label for="company1" class="radio-label mar-rm group-name">씨앤택네트워크</label>
-			                                       </td>
-			                                       <td class="text-left table-bd-r">
-			                                       		<span class="td-user-cnt" style="cursor:pointer;">
-			                                            	<span class="group-user-cnt">김성한</span>
-			                                          	</span>
-			                                       </td>
-			                                    </tr>
-			                                    <tr>
-			                                       <td class="text-left table-bd-r">
-			                                          <input type="radio" id="company1" name="company" class="css-radio check-group1" value="">
-			                                          <label for="company1" class="radio-label mar-rm group-name">셀프리팜</label>
-			                                       </td>
-			                                       <td class="text-left table-bd-r">
-			                                       		<span class="td-user-cnt" style="cursor:pointer;">
-			                                            	<span class="group-user-cnt">이준상</span>
-			                                          	</span>
-			                                       </td>
-			                                    </tr>
+			                                 <c:choose>
+												<c:when test="${fn:length(customers) == 0}">
+													<tr>
+														<td colspan="3">데이터가 없습니다.</td>
+													</tr>
+												</c:when>
+												<c:otherwise> 
+												<c:forEach var="customer" items="${customers}">
+													<tr>
+				                                       <td class="text-left table-bd-r">
+				                                          <input type="radio" id="company_${customer.idx }" name="company" class="css-radio check-group1" value="">
+				                                          <label for="company_${customer.idx}" class="radio-label mar-rm group-name">${customer.company_name }</label>
+				                                       </td>
+				                                       <td class="text-left table-bd-r">
+				                                       		<span class="td-user-cnt" style="cursor:pointer;">
+				                                            	<span class="group-user-cnt">${customer.customer_name }</span>
+				                                          	</span>
+				                                       </td>
+				                                    </tr>
+				                                </c:forEach>
+												</c:otherwise>
+											</c:choose>
 			                                 
 			                              </tbody>
 			                           </table>

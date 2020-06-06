@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.psk.product.mapper.ProductMapper">
+	
+	<select id="selectList" resultType="ProductVO"> 
+	SELECT 
+		idx
+		,name
+		,version
+		,launch_date
+		,sales_man
+		,technical_man
+	 FROM product_info
+	</select>
+	
+</mapper>
+

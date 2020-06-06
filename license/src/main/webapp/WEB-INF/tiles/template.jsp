@@ -39,8 +39,7 @@
     
     <script type="text/javascript" src="/resources/assets/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="/resources/assets/js/bootstrap-datetimepicker.min.js"></script>
-    <!-- //add -->
-  
+    <script type="text/javascript" src="/resources/assets/js/locales/bootstrap-datepicker.kr.min.js"></script>
   
 	<link rel="stylesheet" type="text/css" href="/vendor/fontawesome-free/css/all.min.css" />
 	<link rel="stylesheet" type="text/css" href="/vendor/datatables/dataTables.bootstrap4.css" />
@@ -58,9 +57,9 @@
     </div>
  
     <script type="text/javascript">
-        $(function() {
- 
-        });    
+    $( document ).ready(function() {
+
+	});    
     </script>    
 </body>
 </html>
