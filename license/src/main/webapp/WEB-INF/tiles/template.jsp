@@ -37,15 +37,16 @@
     <!-- <script type="text/javascript" src="/resources/assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/resources/assets/js/bootstrap-toggle.min.js"></script> -->
     
+    <script type="text/javascript" src="/resources/assets/js/moment.min.js"></script>
     <script type="text/javascript" src="/resources/assets/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="/resources/assets/js/bootstrap-datetimepicker.min.js"></script>
     <script type="text/javascript" src="/resources/assets/js/locales/bootstrap-datepicker.kr.min.js"></script>
   
-	<link rel="stylesheet" type="text/css" href="/vendor/fontawesome-free/css/all.min.css" />
-	<link rel="stylesheet" type="text/css" href="/vendor/datatables/dataTables.bootstrap4.css" />
-	<link rel="stylesheet" type="text/css" href="/css/sb-admin.css" />
-	<link rel="stylesheet" type="text/css" href="/css/style.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/fontawesome-free/css/all.min.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/datatables/dataTables.bootstrap4.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/css/sb-admin.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/image/favicon.ico">
 	
 </head>
 <body>
@@ -59,7 +60,8 @@
     <script type="text/javascript">
     $( document ).ready(function() {
 
-	});    
+	});
+
     </script>    
 </body>
 </html>
