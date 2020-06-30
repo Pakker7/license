@@ -9,9 +9,6 @@ var licenseIdx;
 var issuerIdx;
 var customerIdx;
 var issueReason;
-var productName;
-
-var jsonData;
 
 $(function() {	
 
@@ -44,7 +41,6 @@ var issue = {
 				 "issuer_idx" : issuerIdx,
 				 "customer_idx" : customerIdx,
 				 "issue_reason" : issueReason,
-				 "productName" : productName
 	            },
 	            success: function(data){
 	            	

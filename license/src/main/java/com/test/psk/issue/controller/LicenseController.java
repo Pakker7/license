@@ -52,7 +52,7 @@ public class LicenseController {
 
 	@ResponseBody
 	@RequestMapping(value = "/issue/license.do", method = RequestMethod.POST, produces = "application/text; charset=utf8")
-	public String issue(LicenseVO licenseVo, IssueHistoryVO issueHistoryVo) {
+	public String issue(LicenseVO licenseVo, IssueHistoryVO issueHistoryVo) throws Exception {
 
 		String result = issueService.issueLicense(licenseVo, issueHistoryVo);
 		return Common.makeJsonData(result);
