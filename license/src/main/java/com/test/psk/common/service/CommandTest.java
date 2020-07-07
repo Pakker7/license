@@ -14,7 +14,7 @@ public class CommandTest {
 
 	protected static Logger logger = Logger.getLogger(CommandTest.class.getName());
 
-	@RequestMapping(value = "/command", method = RequestMethod.GET)
+	@RequestMapping(value = "/commandTest", method = RequestMethod.GET)
 	public ModelAndView testss() {
 		ModelAndView mav = new ModelAndView();
 
@@ -22,7 +22,10 @@ public class CommandTest {
 
 		try {
 			logger.warning("start");
-			testd("/license/VerifyExe");
+
+			shellExe("/license/VerifyExe");
+			commandExe(new String[] { "/bin/sh", "-c", "ls -al" });
+
 			logger.warning("end");
 		} catch (Exception e) {
 			logger.warning(e.getMessage());
@@ -34,59 +37,51 @@ public class CommandTest {
 		return mav;
 	}
 
-	public String testd(String command) throws Exception {
+	public String shellExe(String command) throws Exception {
 
+		String result = "";
 		Runtime rt = Runtime.getRuntime();
-		String[] commands = { "./VerifyExe" };
+		String[] commands = { command };
 		Process proc = rt.exec(commands);
 
 		BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
 
 		BufferedReader stdError = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
-
-		// Read the output from the command
-		logger.warning("Here is the standard output of the command:\n");
 		String s = null;
+
+		// 정상 출력 시
 		while ((s = stdInput.readLine()) != null) {
-			logger.warning(s);
+			result += s;
+			logger.warning("	1> " + s);
 		}
 
-		// Read any errors from the attempted command
-		logger.warning("Here is the standard error of the command (if any):\n");
+		// 에러 문구 읽어오는 부분이지만, 쉘 실행 결과 출력 용도
 		while ((s = stdError.readLine()) != null) {
-			logger.warning(s);
+			result += s;
+			logger.warning("	2> " + s);
 		}
 
 		return "";
 	}
 
-//	public String testd() throws Exception {
-//
-//		String result = "";
-//
-//		logger.warning("go ls");
-//
-//		// String[] cmd = new String[] { "/bin/sh", "-c", "cd /root/LicenseModule/script/L_2_202006091591704279290/ ; ll" };
-//		String[] cmd = new String[] { "/bin/sh", "-c",
-//				"/root/LicenseModule/script/L_2_202006091591704279290/VerifyExe" };
-//
-//		logger.warning(cmd.toString());
-//		logger.warning("");
-//
-//		Process process = Runtime.getRuntime().exec(cmd);
-//		BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
-//		String line = "";
-//
-//		while ((line = br.readLine()) != null) {
-//			result = line;
-//			logger.warning(" ::: " + result);
-//		}
-//
-//		br.close();
-//
-//		return result;
-//
-//	}
+	public String commandExe(String[] cmd) throws Exception {
+
+		String result = "";
+
+		Process process = Runtime.getRuntime().exec(cmd);
+		BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String line = "";
+
+		while ((line = br.readLine()) != null) {
+			result += line;
+			logger.warning(result);
+		}
+
+		br.close();
+
+		return result;
+
+	}
 
 //	public String testd(String command) throws Exception {
 //

@@ -10,6 +10,8 @@ var issuerIdx;
 var customerIdx;
 var issueReason;
 
+var productName;
+
 $(function() {	
 
 });
@@ -29,6 +31,8 @@ var issue = {
 			return false;
 		}
 		
+		 console.log(productName);
+		
 		 $.ajax({
 	            url:'/issue/license.do',
 	            type:'POST',
@@ -41,6 +45,7 @@ var issue = {
 				 "issuer_idx" : issuerIdx,
 				 "customer_idx" : customerIdx,
 				 "issue_reason" : issueReason,
+				 "productName" : productName
 	            },
 	            success: function(data){
 	            	
@@ -56,36 +61,37 @@ var issue = {
 	},
 	dataValidationAndUpdate : function(){
 		 productIdx = $(":input:radio[name=product]:checked").val();
+		 productName = $(':input:radio[name=product]').data('name');
 		 // licensePolicy = $('#') ; //TODO 추후 적용
-		 issueStart = document.getElementById("issueStart").value; 
-		 issueEnd = document.getElementById("issueEnd").value;
+		 issueStart = $('#issueStart').val(); 
+		 issueEnd = $('#issueEnd').val();
 		 
 		 issuerIdx = $('#issueIdx').val();
 		 customerIdx = $(":input:radio[name=customer]:checked").val();
 		 issueReason = $('#issueReason').val();
 	
 		 if(isEmpty(productIdx)){
-			console.log("productIdx");
+			alert("제품 정보를 선택해 주세요");
 			return false;
 		}
 		if(isEmpty(issueStart)){
-			console.log("issueStart");
+			alert("시작 날짜를 선택해 주세요");
 			return false;
 		}
 		if(isEmpty(issueEnd)){
-			console.log("issueEnd");
+			alert("끝나는 날짜를 선택해 주세요");
 			return false;
 		}
 		if(isEmpty(issuerIdx)){
-			console.log("issuerIdx");
+			alert("발급자 정보가 없습니다");
 			return false;
 		}
 		if(isEmpty(customerIdx)){
-			console.log("customerIdx");
+			alert("고객 정보를 선택해 주세요");
 			return false;
 		}
 		if(isEmpty(issueReason)){
-			console.log("issueReason");
+			alert("발급 사유를 작성해 주세요");
 			return false;
 		}
 

@@ -17,8 +17,8 @@ public class IssueHistoryVO {
 	private int issuer_idx;
 	private int customer_idx;
 	private String issue_reason;
-	private String issueStart;
-	private String issueEnd;
+	private String issue_start;
+	private String issue_end;
 	private Date issue_date;
 
 }

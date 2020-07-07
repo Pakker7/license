@@ -40,7 +40,7 @@
 											<c:forEach var="product" items="${products}">
 												<tr>
 			                                       <td class="text-left table-bd-r">
-			                                          <input type="radio" id="product_${product.idx }" name="product" class="css-radio check-group1" value="${product.idx }">
+			                                          <input type="radio" id="product_${product.idx }" name="product" class="css-radio check-group1" value="${product.idx }" data-name="${product.name }">
 			                                          <label for="product_${product.idx }" class="radio-label mar-rm group-name">${product.name }</label>
 			                                       </td>
 			                                       <td class="text-center table-bd-r">
@@ -169,7 +169,7 @@
 											<c:forEach var="customer" items="${customers}">
 												<tr>
 			                                       <td class="text-left table-bd-r">
-			                                          <input type="radio" id="company_${customer.idx }" name="customer" class="css-radio check-group1" value="">
+			                                          <input type="radio" id="company_${customer.idx }" name="customer" class="css-radio check-group1" value="${customer.idx }">
 			                                          <label for="company_${customer.idx}" class="radio-label mar-rm group-name">${customer.company_name }</label>
 			                                       </td>
 			                                       <td class="text-left table-bd-r">

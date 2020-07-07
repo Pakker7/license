@@ -7,6 +7,7 @@
       
       <typeAliases>
             <typeAlias alias="IssueHistoryVO" type="com.test.psk.history.vo.IssueHistoryVO"></typeAlias>
+            <typeAlias alias="LicenseVO" type="com.test.psk.issue.vo.LicenseVO"></typeAlias>
             <typeAlias alias="ProductVO" type="com.test.psk.product.vo.ProductVO"></typeAlias>
             <typeAlias alias="CustomerVO" type="com.test.psk.customer.vo.CustomerVO"></typeAlias>
       </typeAliases>

@@ -1,6 +1,7 @@
 package com.test.psk.issue.controller;
 
 import java.util.Locale;
+import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.test.psk.common.service.CommandTest;
 import com.test.psk.common.util.Common;
 import com.test.psk.customer.service.CustomerServiceImpl;
 import com.test.psk.customer.vo.CustomerVO;
@@ -28,6 +30,8 @@ public class LicenseController {
 	private ProductServiceImpl productService;
 	@Autowired
 	private CustomerServiceImpl customerService;
+
+	private static Logger logger = Logger.getLogger(CommandTest.class.getName());
 
 	@RequestMapping(value = "/issueList", method = RequestMethod.GET)
 	public ModelAndView list(Locale locale, Model model) {
@@ -54,7 +58,11 @@ public class LicenseController {
 	@RequestMapping(value = "/issue/license.do", method = RequestMethod.POST, produces = "application/text; charset=utf8")
 	public String issue(LicenseVO licenseVo, IssueHistoryVO issueHistoryVo) throws Exception {
 
+		logger.warning(licenseVo.toString());
+		logger.warning(issueHistoryVo.toString());
+
 		String result = issueService.issueLicense(licenseVo, issueHistoryVo);
+
 		return Common.makeJsonData(result);
 	}
 

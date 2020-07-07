@@ -18,16 +18,16 @@ public class LicenseVO {
 	private String system_info;
 	private String sign_data;
 	private String license_issue_key;
-	private String lisence_verify_key;
+	private String license_verify_key;
 	private Date create_date;
 	private String license_policy;
-	private String issueStart;
-	private String issueEnd;
+	private String issue_start;
+	private String issue_end;
 
 	private String productName;
 
 	public String getLisencePolicyForCommandInput() {
-		return issueStart + "~" + issueEnd + "\n" + productName;
+		return issue_start + "~" + issue_end + "\n" + productName;
 	}
 
 }
