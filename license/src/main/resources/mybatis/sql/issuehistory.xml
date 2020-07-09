@@ -25,7 +25,6 @@
 			,issue_reason
 			,issue_start
 			,issue_end
-			,issue_date
 		) VALUES(
 			 #{product_idx}
 			,#{license_idx}
@@ -33,7 +32,6 @@
 			,#{issue_reason}
 			,#{issue_start}
 			,#{issue_end}
-			,now()
 		);
 	</insert>
 	

@@ -27,7 +27,7 @@ public class LicenseVO {
 	private String productName;
 
 	public String getLisencePolicyForCommandInput() {
-		return issue_start + "~" + issue_end + "\n" + productName;
+		return issue_start + "~" + issue_end + "|" + productName;
 	}
 
 }

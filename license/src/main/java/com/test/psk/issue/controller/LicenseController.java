@@ -58,9 +58,6 @@ public class LicenseController {
 	@RequestMapping(value = "/issue/license.do", method = RequestMethod.POST, produces = "application/text; charset=utf8")
 	public String issue(LicenseVO licenseVo, IssueHistoryVO issueHistoryVo) throws Exception {
 
-		logger.warning(licenseVo.toString());
-		logger.warning(issueHistoryVo.toString());
-
 		String result = issueService.issueLicense(licenseVo, issueHistoryVo);
 
 		return Common.makeJsonData(result);

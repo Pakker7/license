@@ -20,6 +20,7 @@ public class LicenseServiceImpl {
 	private LicenseMapper mapper;
 
 	private static Logger logger = Logger.getLogger(LicenseServiceImpl.class.getName());
+
 	private String licenseFolderName = null;
 	private String binSh = "/bin/sh";
 	private String cdScript = "cd ./LicenseModule/script/";
@@ -28,6 +29,8 @@ public class LicenseServiceImpl {
 		this.licenseCommandExe(licenseVo);
 
 		this.saveLicense(licenseVo);
+
+		logger.warning("히스토리 저장");
 		this.saveHistory(issueHistoryVo);
 
 		return "";
@@ -44,9 +47,8 @@ public class LicenseServiceImpl {
 
 		// 권한 작성
 		String grant = this.makeGrantStr(licenseVo);
-		logger.warning(">>>>>>>>     " + grant);
 		String[] grantCmd = { binSh, "-c",
-				cdScript + "; perl -pe '$.==26 and print \"" + grant + "\"' ./license.conf" };
+				cdScript + licenseFolderName + "; perl -pe '$.==26 and print \"" + grant + "\"' ./license.conf" };
 		Command.commandExe(grantCmd);
 
 		String[] issueExe = { binSh, "-c", cdScript + licenseFolderName + "; ./IssueExe" };
@@ -61,10 +63,10 @@ public class LicenseServiceImpl {
 		return licenseVo.getLisencePolicyForCommandInput();
 	}
 
-	// TODO db에 insert 해야함
 	private int saveLicense(LicenseVO licenseVo) throws Exception {
-		String[] getSignData = { binSh, "-c",
-				cdScript + licenseFolderName + "; cat license.conf | grep -A 3 -B 1 -w \"[SIGNATURE]\"" };
+		licenseVo.setLicense_policy(licenseVo.getLisencePolicyForCommandInput());
+
+		String[] getSignData = { binSh, "-c", cdScript + licenseFolderName + "; tail -n 3 license.conf" };
 		String signData = Command.commandExe(getSignData);
 		licenseVo.setSign_data(signData);
 
@@ -76,13 +78,22 @@ public class LicenseServiceImpl {
 		String verifyKey = Command.commandExe(getVerifyKey);
 		licenseVo.setLicense_verify_key(verifyKey);
 
-		logger.warning(">>>>>>>>     " + licenseVo.toString());
 		return mapper.insert(licenseVo);
 	}
 
-	// TODO db에 insert 해야함
 	private void saveHistory(IssueHistoryVO issueHistoryVo) {
-		issueHistoryService.insert(issueHistoryVo);
+
+		logger.warning("");
+		logger.warning("");
+		logger.warning("");
+		logger.warning("");
+		logger.warning("");
+		logger.warning("");
+		logger.warning(issueHistoryVo.toString());
+
+		int a = issueHistoryService.insert(issueHistoryVo);
+		logger.warning(Integer.toString(a));
+
 	}
 
 }
