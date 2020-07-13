@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.test.psk.common.service.Command;
 import com.test.psk.history.service.IssueHistoryServiceImpl;
@@ -26,11 +27,9 @@ public class LicenseServiceImpl {
 	private String cdScript = "cd ./LicenseModule/script/";
 
 	public String issueLicense(LicenseVO licenseVo, IssueHistoryVO issueHistoryVo) throws Exception {
+
 		this.licenseCommandExe(licenseVo);
-
 		this.saveLicense(licenseVo);
-
-		logger.warning("히스토리 저장");
 		this.saveHistory(issueHistoryVo);
 
 		return "";
@@ -63,6 +62,7 @@ public class LicenseServiceImpl {
 		return licenseVo.getLisencePolicyForCommandInput();
 	}
 
+	@Transactional
 	private int saveLicense(LicenseVO licenseVo) throws Exception {
 		licenseVo.setLicense_policy(licenseVo.getLisencePolicyForCommandInput());
 
@@ -81,18 +81,9 @@ public class LicenseServiceImpl {
 		return mapper.insert(licenseVo);
 	}
 
+	@Transactional
 	private void saveHistory(IssueHistoryVO issueHistoryVo) {
-
-		logger.warning("");
-		logger.warning("");
-		logger.warning("");
-		logger.warning("");
-		logger.warning("");
-		logger.warning("");
-		logger.warning(issueHistoryVo.toString());
-
-		int a = issueHistoryService.insert(issueHistoryVo);
-		logger.warning(Integer.toString(a));
+		issueHistoryService.insert(issueHistoryVo);
 
 	}
 
