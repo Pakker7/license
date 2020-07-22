@@ -1,7 +1,11 @@
 package com.test.psk.issue.controller;
 
+import java.io.IOException;
 import java.util.Locale;
 import java.util.logging.Logger;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.test.psk.common.service.CommandTest;
-import com.test.psk.common.util.Common;
 import com.test.psk.customer.service.CustomerServiceImpl;
 import com.test.psk.customer.vo.CustomerVO;
 import com.test.psk.history.vo.IssueHistoryVO;
@@ -31,7 +33,7 @@ public class LicenseController {
 	@Autowired
 	private CustomerServiceImpl customerService;
 
-	private static Logger logger = Logger.getLogger(CommandTest.class.getName());
+	private static Logger logger = Logger.getLogger(LicenseController.class.getName());
 
 	@RequestMapping(value = "/issueList", method = RequestMethod.GET)
 	public ModelAndView list(Locale locale, Model model) {
@@ -57,16 +59,15 @@ public class LicenseController {
 	@ResponseBody
 	@RequestMapping(value = "/issue/license.do", method = RequestMethod.POST, produces = "application/text; charset=utf8")
 	public String issue(LicenseVO licenseVo, IssueHistoryVO issueHistoryVo) throws Exception {
-
 		String result = issueService.issueLicense(licenseVo, issueHistoryVo);
-
-		return Common.makeJsonData(result);
+		return result;
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/issue/licenseFileDownload.do", method = RequestMethod.POST, produces = "application/text; charset=utf8")
-	public void licenseFileDownload(Locale locale, Model model) {
-
+	@RequestMapping(value = "/issue/licenseFileDownload.do", method = RequestMethod.GET, produces = "application/text; charset=utf8")
+	public void licenseFileDownload(Locale locale, HttpServletRequest request, HttpServletResponse response)
+			throws IOException {
+		issueService.fileDownload(request, response);
 	}
 
 }
