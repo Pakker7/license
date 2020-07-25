@@ -17,12 +17,12 @@
 	FROM license
 	</select>
 	
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="idx">
 	INSERT INTO 
 	license(
 		lisence_idx
 		,product_idx
-		<!-- ,version -->
+		,version
 		<!-- ,system_info -->
 		,license_policy
 		,sign_data
@@ -31,7 +31,7 @@
 	) VALUES(
 		#{lisence_idx}
 		,#{product_idx}
-		<!-- ,#{version} -->
+		,#{version}
 		<!-- ,#{system_info} -->
 		,#{license_policy}
 		,#{sign_data}

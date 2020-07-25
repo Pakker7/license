@@ -14,5 +14,16 @@
 	 FROM product_info
 	</select>
 	
+	<select id="select" resultType="ProductVO"> 
+	SELECT 
+		idx
+		,name
+		,version
+		,launch_date
+		,sales_man
+		,technical_man
+	 FROM product_info
+	 WHERE idx=#{idx};
+	</select>
 </mapper>
 

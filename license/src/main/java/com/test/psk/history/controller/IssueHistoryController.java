@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.test.psk.history.service.IssueHistoryServiceImpl;
+import com.test.psk.history.vo.IssueHistoryVO;
 
 @Controller
 public class IssueHistoryController {
@@ -22,6 +23,7 @@ public class IssueHistoryController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.setViewName("history/issue");
+		mav.addObject("history", issueHistoryService.selectLIst(new IssueHistoryVO()));
 
 		return mav;
 	}

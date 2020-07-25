@@ -21,4 +21,14 @@ public class IssueHistoryVO {
 	private String issue_end;
 	private Date issue_date;
 
+	private String version;
+	private String id;
+	private String product_name;
+	private String issuer_name;
+	private String company_name;
+	private String customer_name;
+	private String sign_data;
+	private String license_issue_key;
+	private String license_verify_key;
+
 }

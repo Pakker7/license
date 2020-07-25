@@ -12,7 +12,7 @@ import lombok.ToString;
 public class LicenseVO {
 
 	private int idx;
-	private int lisence_idx;
+	private int lisence_idx; //단순 식별자
 	private int product_idx;
 	private String version;
 	private String system_info;

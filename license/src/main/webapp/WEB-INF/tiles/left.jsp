@@ -44,11 +44,6 @@
           <span>라이선스 발급 이력</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/history/distribute">
-          <i class="fas fa-fw fa-table"></i>
-          <span>라이선스 배포 이력</span></a>
-      </li>      
-      <li class="nav-item">
         <a class="nav-link" href="/account">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>계정 관리</span></a>

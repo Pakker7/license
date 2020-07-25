@@ -11,6 +11,14 @@ import lombok.ToString;
 @ToString
 public class ProductVO {
 
+	public ProductVO() {
+
+	}
+
+	public ProductVO(int idx) {
+		this.idx = idx;
+	}
+
 	private int idx;
 	private String name;
 	private String version;

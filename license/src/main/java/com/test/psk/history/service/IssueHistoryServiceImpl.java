@@ -1,5 +1,7 @@
 package com.test.psk.history.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +16,9 @@ public class IssueHistoryServiceImpl {
 
 	public Integer insert(IssueHistoryVO issueHistoryVo) {
 		return mapper.insert(issueHistoryVo);
+	}
+
+	public List<IssueHistoryVO> selectLIst(IssueHistoryVO issueHistoryVo) {
+		return mapper.selectList(issueHistoryVo);
 	}
 }

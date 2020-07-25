@@ -17,4 +17,8 @@ public class ProductServiceImpl {
 	public List<ProductVO> selectList(ProductVO productVo) {
 		return mapper.selectList(productVo);
 	}
+
+	public ProductVO select(ProductVO productVo) {
+		return mapper.select(productVo);
+	}
 }

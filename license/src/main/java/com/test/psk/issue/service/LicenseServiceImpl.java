@@ -21,12 +21,16 @@ import com.test.psk.history.service.IssueHistoryServiceImpl;
 import com.test.psk.history.vo.IssueHistoryVO;
 import com.test.psk.issue.mapper.LicenseMapper;
 import com.test.psk.issue.vo.LicenseVO;
+import com.test.psk.product.service.ProductServiceImpl;
+import com.test.psk.product.vo.ProductVO;
 
 @Service
 public class LicenseServiceImpl {
 
 	@Autowired
 	private IssueHistoryServiceImpl issueHistoryService;
+	@Autowired
+	private ProductServiceImpl productService;
 	@Autowired
 	private LicenseMapper mapper;
 
@@ -39,11 +43,8 @@ public class LicenseServiceImpl {
 	public String issueLicense(LicenseVO licenseVo, IssueHistoryVO issueHistoryVo) throws Exception {
 
 		this.licenseCommandExe(licenseVo);
-		logger.warning("1");
 		this.saveLicense(licenseVo);
-		logger.warning("2");
 		this.saveHistory(issueHistoryVo);
-		logger.warning("3");
 
 		return "success";
 	}
@@ -78,6 +79,7 @@ public class LicenseServiceImpl {
 	@Transactional
 	private int saveLicense(LicenseVO licenseVo) throws Exception {
 		licenseVo.setLicense_policy(licenseVo.getLisencePolicyForCommandInput());
+		licenseVo.setVersion(productService.select(new ProductVO(licenseVo.getProduct_idx())).getVersion());
 
 		String[] getSignData = { binSh, "-c", cdScript + licenseFolderName + "; tail -n 3 license.conf" };
 		String signData = Command.commandExe(getSignData);
@@ -102,7 +104,6 @@ public class LicenseServiceImpl {
 
 	public void fileDownload(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = "./LicenseModule/script/" + licenseFolderName + File.separator + licenseFolderName + ".tgz";
-		logger.warning(path);
 
 		File file = new File(path);
 
