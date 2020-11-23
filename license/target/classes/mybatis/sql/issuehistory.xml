@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.psk.history.mapper.IssueHistoryMapper">
+	
+	<select id="selectList" resultType="IssueHistoryVO"> 
+	SELECT 
+		lh.idx
+		, pi.name as product_name
+		, pi.version
+		, lh.issue_start
+		, lh.issue_end
+		, lh.issue_date
+		, iu.id
+		, iu.name as issuer_name
+		, cu.company_name
+		, cu.customer_name
+		, lh.issue_reason
+		, li.sign_data
+		, li.license_issue_key
+		, li.license_verify_key
+	FROM license li
+	JOIN license_issue_history lh on li.idx = lh.license_idx 
+	JOIN issuer iu on lh.issuer_idx = iu.idx
+	JOIN product_info pi on pi.idx = li.product_idx
+	JOIN customer cu on cu.idx = lh.customer_idx
+	</select>
+	
+	<insert id="insert">
+	INSERT INTO 
+		license_issue_history(
+			product_idx
+			,license_idx
+			,issuer_idx
+			,issue_reason
+			,issue_start
+			,issue_end
+		) VALUES(
+			 #{product_idx}
+			,#{license_idx}
+			,#{issuer_idx}
+			,#{issue_reason}
+			,#{issue_start}
+			,#{issue_end}
+		);
+	</insert>
+	
+</mapper>
+

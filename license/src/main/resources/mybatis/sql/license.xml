@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.psk.issue.mapper.LicenseMapper">
+	
+	<select id="selectList" resultType="LicenseVO"> 
+	SELECT 
+		idx
+		,lisence_idx
+		,product_idx
+		,version
+		,system_info
+		,license_policy
+		,sign_data
+		,license_issue_key
+		,license_verify_key
+	FROM license
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="idx">
+	INSERT INTO 
+	license(
+		lisence_idx
+		,product_idx
+		,version
+		<!-- ,system_info -->
+		,license_policy
+		,sign_data
+		,license_issue_key
+		,license_verify_key
+	) VALUES(
+		#{lisence_idx}
+		,#{product_idx}
+		,#{version}
+		<!-- ,#{system_info} -->
+		,#{license_policy}
+		,#{sign_data}
+		,#{license_issue_key}
+		,#{license_verify_key}
+	);
+	</insert>
+	
+</mapper>
+
